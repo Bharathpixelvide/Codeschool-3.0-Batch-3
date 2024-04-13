@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="row d-flex gap-5 flex-wrap">
+    @for(income of incomes;track $index){
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">{{ income.user_id }}</h5>
+        <h6>
+          {{ income.category_id }}
+        </h6>
+        <p>{{ income.amount }}</p>
+        <p [innerHTML]="income.description"></p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

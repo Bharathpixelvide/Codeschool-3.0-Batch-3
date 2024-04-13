@@ -1,0 +1,55 @@
+<nav class="navbar bg-body-light shadow-lg">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand my-2 ms-5 fs-2 h1"
+      style="color: #00b09b"
+      routerLink="/login"
+      >Expense Tracker
+    </a>
+  </div>
+</nav>
+<form
+  (ngSubmit)="login()"
+  class="d-flex login flex-column"
+  [formGroup]="loginFormGroup"
+>
+  <h2>Login</h2>
+  <div class="mb-1">
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+  </div>
+  @if (isFieldInvalid("email")) {
+  <p class="text-lg-start msg">
+    {{ getErrorMessage("email", "Email") }}
+  </p>
+  }
+
+  <div>
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+  </div>
+  @if (isFieldInvalid("password")) {
+  <small class="text-start msg">{{
+    getErrorMessage("password", "Password")
+  }}</small>
+  }
+
+  <button class="btn mt-3">Login</button>
+  <div class="d-flex justify-content-center">
+    <a class="nav-link mt-3" routerLink="/register" routerLinkActive="active"
+      >Create an account.?Register</a
+    >
+  </div>
+</form>

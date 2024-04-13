@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-body-light shadow-lg">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand my-2 ms-lg-5 ms-2 fs-2 h1"
+      style="color: #00b09b"
+      routerLink="/dashboard"
+      >Expense Tracker</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ms-auto">
+        @if(menus){ @for(menu of menus;track $index){
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            style="color: #00b09b"
+            [routerLink]="'/' + menu.url"
+            routerLinkActive="active"
+          >
+            {{ menu.name }}
+          </a>
+        </li>
+        } }
+        <button
+          class="btn log-btn"
+          [class.d-none]="logoutButton"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+      </ul>
+    </div>
+  </div>
+</nav>

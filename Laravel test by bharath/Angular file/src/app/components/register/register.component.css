@@ -1,0 +1,61 @@
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(200px);
+  color: #00b09b;
+  max-width: 320px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 5%;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  width: 100%;
+}
+
+.register {
+  backdrop-filter: blur(200px);
+}
+
+label {
+  margin-bottom: 8px;
+  color: #00b09b;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: #00b09b;
+  color: white;
+  width: 70%;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn-primary:hover {
+  background-color: #1c825d;
+  color: white;
+}
+
+.msg{
+  color:red;
+}

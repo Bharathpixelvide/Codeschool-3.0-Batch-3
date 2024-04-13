@@ -1,0 +1,16 @@
+
+.active {
+  color: red !important;
+}
+.log-btn {
+  margin-right: 30px;
+  border: 2px solid white;
+  border-radius: 10px;
+  max-width: 130px;
+  background-color: #00b09b;
+  color: white;
+}
+.log-btn:hover {
+  background-color: #1c825d;
+  color: white;
+}

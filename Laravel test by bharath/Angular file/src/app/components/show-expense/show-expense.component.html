@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="table-responsive mt-5" style="overflow-x: auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Expense Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Spend By</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(expense of expenses;track $index){
+
+        <tr>
+          <td>{{ expense.id }}</td>
+          <td>{{ expense.expense_date | date }}</td>
+          <td>{{ expense.amount }}</td>
+          <td [innerHTML]="expense.description"></td>
+          <td>{{ expense.user_id }}</td>
+          <td>{{ expense.category_id }}</td>
+        </tr>
+        }@empty{
+        <h3 style="color: #00b09b" class="my-2">
+          No expenses for this user to show....
+        </h3>
+        }
+      </tbody>
+    </table>
+  </div>
+  <div class="d-flex gap-2 justify-content-end">
+    <button
+      class="page-btn btn"
+      [class.disable]="currentPage == totalPages"
+      (click)="prevPage(currentPage - 1)"
+    >
+      Previous
+    </button>
+    <span class="me-3">Pages {{ currentPage }} of {{ totalPages }}</span>
+    <button
+      class="page-btn btn"
+      [class.disable]="currentPage == totalPages"
+      (click)="nextPage(currentPage + 1)"
+    >
+      Next
+    </button>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<nav class="navbar bg-body-light shadow-lg">
+  <div class="container-fluid">
+    <a
+      class="navbar-brand my-2 ms-5 fs-2 h1"
+      style="color: #00b09b"
+      routerLink="/login"
+      >Expense Tracker</a
+    >
+  </div>
+</nav>
+<form
+  class="d-flex align-items-center head justify-content-center flex-column"
+  [formGroup]="form"
+  (ngSubmit)="register()"
+>
+  <h2>Register</h2>
+  <div>
+    <label for="username">Username:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      placeholder="Username"
+      formControlName="username"
+    />
+    @if(isFieldInvalid('username')){
+    <p class="msg">
+      {{ getErrorMessage("username", "Username") }}
+    </p>
+    }
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      placeholder="Email"
+      formControlName="email"
+    />
+    @if(isFieldInvalid('email')){
+    <p class="msg">
+      {{ getErrorMessage("email", "Email") }}
+    </p>
+    }
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Password"
+      formControlName="password"
+    />
+    @if(isFieldInvalid('password')){
+    <p class="msg">
+      {{ getErrorMessage("password", "Password") }}
+    </p>
+    }
+  </div>
+
+  <button class="btn btn-primary mt-1">Register</button>
+  <div class="d-flex justify-content-center">
+    <a class="nav-link mt-3" routerLink="/login" routerLinkActive="active"
+      >Already have an account.?Login</a
+    >
+  </div>
+</form>

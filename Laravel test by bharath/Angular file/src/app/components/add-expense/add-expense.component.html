@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="container">
+  <form
+    class="d-flex head flex-column"
+    [formGroup]="expenseForm"
+    (ngSubmit)="addExpense()"
+  >
+    <h2>Add Expense</h2>
+    <div>
+      <label for="category_id">Category:</label>
+      <select class="form-control" formControlName="category_id">
+        @for(category of categories;track $index){
+        <option [value]="category.id">
+          {{ category.category_name }}
+        </option>
+        }
+      </select>
+      <p class="msg" *ngIf="isFieldInvalid('category_id')">
+        {{ getErrorMessage("category_id", "Category") }}
+      </p>
+    </div>
+    <div>
+      <label for="expense_date">Due Date:</label>
+      <input
+        type="date"
+        class="form-control"
+        id="expense_date"
+        formControlName="expense_date"
+      />
+      @if(isFieldInvalid('expense_date')){
+      <p class="msg">
+        {{ getErrorMessage("expense_date", "Expense Date") }}
+      </p>
+      }
+    </div>
+    <div>
+      <label for="amount">Amount:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="amount"
+        placeholder="Amount"
+        formControlName="amount"
+      />
+      @if(isFieldInvalid('amount')){
+      <p class="msg">
+        {{ getErrorMessage("amount", "Amount") }}
+      </p>
+      }
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <div class="editor">
+        <angular-editor
+          class="text-black bg-white editor"
+          [placeholder]="'Enter Task Description here...'"
+          formControlName="description"
+          [config]="config"
+          width=""
+          id="description"
+          name="editor"
+          required
+        ></angular-editor>
+      </div>
+      @if(isFieldInvalid('description')){
+      <p class="msg">
+        {{ getErrorMessage("description", "Description") }}
+      </p>
+      }
+    </div>
+
+    <button class="btn mt-2">Add Expense</button>
+  </form>
+</div>
